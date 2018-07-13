@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		731EB0AD20F8447000A1C4D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0AC20F8447000A1C4D0 /* AppDelegate.m */; };
+		731EB0B020F8447000A1C4D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0AF20F8447000A1C4D0 /* ViewController.m */; };
+		731EB0B320F8447000A1C4D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731EB0B120F8447000A1C4D0 /* Main.storyboard */; };
+		731EB0B520F8447300A1C4D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731EB0B420F8447300A1C4D0 /* Assets.xcassets */; };
+		731EB0B820F8447300A1C4D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731EB0B620F8447300A1C4D0 /* LaunchScreen.storyboard */; };
+		731EB0BB20F8447300A1C4D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0BA20F8447300A1C4D0 /* main.m */; };
+		731EB0C520F8447300A1C4D0 /* ONTWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0C420F8447300A1C4D0 /* ONTWalletTests.m */; };
+		731EB0D020F8447300A1C4D0 /* ONTWalletUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0CF20F8447300A1C4D0 /* ONTWalletUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		731EB0C120F8447300A1C4D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 731EB0A020F8447000A1C4D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 731EB0A720F8447000A1C4D0;
+			remoteInfo = ONTWallet;
+		};
+		731EB0CC20F8447300A1C4D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 731EB0A020F8447000A1C4D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 731EB0A720F8447000A1C4D0;
+			remoteInfo = ONTWallet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		731EB0A820F8447000A1C4D0 /* ONTWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ONTWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		731EB0AB20F8447000A1C4D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		731EB0AC20F8447000A1C4D0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		731EB0AE20F8447000A1C4D0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		731EB0AF20F8447000A1C4D0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		731EB0B220F8447000A1C4D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		731EB0B420F8447300A1C4D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		731EB0B720F8447300A1C4D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		731EB0B920F8447300A1C4D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		731EB0BA20F8447300A1C4D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		731EB0C020F8447300A1C4D0 /* ONTWalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ONTWalletTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		731EB0C420F8447300A1C4D0 /* ONTWalletTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ONTWalletTests.m; sourceTree = "<group>"; };
+		731EB0C620F8447300A1C4D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		731EB0CB20F8447300A1C4D0 /* ONTWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ONTWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		731EB0CF20F8447300A1C4D0 /* ONTWalletUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ONTWalletUITests.m; sourceTree = "<group>"; };
+		731EB0D120F8447300A1C4D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		731EB0A520F8447000A1C4D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		731EB0BD20F8447300A1C4D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		731EB0C820F8447300A1C4D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		731EB09F20F8447000A1C4D0 = {
+			isa = PBXGroup;
+			children = (
+				731EB0AA20F8447000A1C4D0 /* ONTWallet */,
+				731EB0C320F8447300A1C4D0 /* ONTWalletTests */,
+				731EB0CE20F8447300A1C4D0 /* ONTWalletUITests */,
+				731EB0A920F8447000A1C4D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		731EB0A920F8447000A1C4D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				731EB0A820F8447000A1C4D0 /* ONTWallet.app */,
+				731EB0C020F8447300A1C4D0 /* ONTWalletTests.xctest */,
+				731EB0CB20F8447300A1C4D0 /* ONTWalletUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		731EB0AA20F8447000A1C4D0 /* ONTWallet */ = {
+			isa = PBXGroup;
+			children = (
+				731EB0DD20F844BD00A1C4D0 /* ONTLib */,
+				731EB0AB20F8447000A1C4D0 /* AppDelegate.h */,
+				731EB0AC20F8447000A1C4D0 /* AppDelegate.m */,
+				731EB0AE20F8447000A1C4D0 /* ViewController.h */,
+				731EB0AF20F8447000A1C4D0 /* ViewController.m */,
+				731EB0B120F8447000A1C4D0 /* Main.storyboard */,
+				731EB0B420F8447300A1C4D0 /* Assets.xcassets */,
+				731EB0B620F8447300A1C4D0 /* LaunchScreen.storyboard */,
+				731EB0B920F8447300A1C4D0 /* Info.plist */,
+				731EB0BA20F8447300A1C4D0 /* main.m */,
+			);
+			path = ONTWallet;
+			sourceTree = "<group>";
+		};
+		731EB0C320F8447300A1C4D0 /* ONTWalletTests */ = {
+			isa = PBXGroup;
+			children = (
+				731EB0C420F8447300A1C4D0 /* ONTWalletTests.m */,
+				731EB0C620F8447300A1C4D0 /* Info.plist */,
+			);
+			path = ONTWalletTests;
+			sourceTree = "<group>";
+		};
+		731EB0CE20F8447300A1C4D0 /* ONTWalletUITests */ = {
+			isa = PBXGroup;
+			children = (
+				731EB0CF20F8447300A1C4D0 /* ONTWalletUITests.m */,
+				731EB0D120F8447300A1C4D0 /* Info.plist */,
+			);
+			path = ONTWalletUITests;
+			sourceTree = "<group>";
+		};
+		731EB0DD20F844BD00A1C4D0 /* ONTLib */ = {
+			isa = PBXGroup;
+			children = (
+				731EB0DE20F8459200A1C4D0 /* Models */,
+				731EB0DF20F8459200A1C4D0 /* ONT */,
+				731EB0E020F8459300A1C4D0 /* Scrypt */,
+			);
+			path = ONTLib;
+			sourceTree = "<group>";
+		};
+		731EB0DE20F8459200A1C4D0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		731EB0DF20F8459200A1C4D0 /* ONT */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ONT;
+			sourceTree = "<group>";
+		};
+		731EB0E020F8459300A1C4D0 /* Scrypt */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scrypt;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		731EB0A720F8447000A1C4D0 /* ONTWallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 731EB0D420F8447300A1C4D0 /* Build configuration list for PBXNativeTarget "ONTWallet" */;
+			buildPhases = (
+				731EB0A420F8447000A1C4D0 /* Sources */,
+				731EB0A520F8447000A1C4D0 /* Frameworks */,
+				731EB0A620F8447000A1C4D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ONTWallet;
+			productName = ONTWallet;
+			productReference = 731EB0A820F8447000A1C4D0 /* ONTWallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		731EB0BF20F8447300A1C4D0 /* ONTWalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 731EB0D720F8447300A1C4D0 /* Build configuration list for PBXNativeTarget "ONTWalletTests" */;
+			buildPhases = (
+				731EB0BC20F8447300A1C4D0 /* Sources */,
+				731EB0BD20F8447300A1C4D0 /* Frameworks */,
+				731EB0BE20F8447300A1C4D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				731EB0C220F8447300A1C4D0 /* PBXTargetDependency */,
+			);
+			name = ONTWalletTests;
+			productName = ONTWalletTests;
+			productReference = 731EB0C020F8447300A1C4D0 /* ONTWalletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		731EB0CA20F8447300A1C4D0 /* ONTWalletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 731EB0DA20F8447300A1C4D0 /* Build configuration list for PBXNativeTarget "ONTWalletUITests" */;
+			buildPhases = (
+				731EB0C720F8447300A1C4D0 /* Sources */,
+				731EB0C820F8447300A1C4D0 /* Frameworks */,
+				731EB0C920F8447300A1C4D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				731EB0CD20F8447300A1C4D0 /* PBXTargetDependency */,
+			);
+			name = ONTWalletUITests;
+			productName = ONTWalletUITests;
+			productReference = 731EB0CB20F8447300A1C4D0 /* ONTWalletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		731EB0A020F8447000A1C4D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = zhangyutao;
+				TargetAttributes = {
+					731EB0A720F8447000A1C4D0 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					731EB0BF20F8447300A1C4D0 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 731EB0A720F8447000A1C4D0;
+					};
+					731EB0CA20F8447300A1C4D0 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 731EB0A720F8447000A1C4D0;
+					};
+				};
+			};
+			buildConfigurationList = 731EB0A320F8447000A1C4D0 /* Build configuration list for PBXProject "ONTWallet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 731EB09F20F8447000A1C4D0;
+			productRefGroup = 731EB0A920F8447000A1C4D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				731EB0A720F8447000A1C4D0 /* ONTWallet */,
+				731EB0BF20F8447300A1C4D0 /* ONTWalletTests */,
+				731EB0CA20F8447300A1C4D0 /* ONTWalletUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		731EB0A620F8447000A1C4D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				731EB0B820F8447300A1C4D0 /* LaunchScreen.storyboard in Resources */,
+				731EB0B520F8447300A1C4D0 /* Assets.xcassets in Resources */,
+				731EB0B320F8447000A1C4D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		731EB0BE20F8447300A1C4D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		731EB0C920F8447300A1C4D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		731EB0A420F8447000A1C4D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				731EB0B020F8447000A1C4D0 /* ViewController.m in Sources */,
+				731EB0BB20F8447300A1C4D0 /* main.m in Sources */,
+				731EB0AD20F8447000A1C4D0 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		731EB0BC20F8447300A1C4D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				731EB0C520F8447300A1C4D0 /* ONTWalletTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		731EB0C720F8447300A1C4D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				731EB0D020F8447300A1C4D0 /* ONTWalletUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		731EB0C220F8447300A1C4D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 731EB0A720F8447000A1C4D0 /* ONTWallet */;
+			targetProxy = 731EB0C120F8447300A1C4D0 /* PBXContainerItemProxy */;
+		};
+		731EB0CD20F8447300A1C4D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 731EB0A720F8447000A1C4D0 /* ONTWallet */;
+			targetProxy = 731EB0CC20F8447300A1C4D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		731EB0B120F8447000A1C4D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				731EB0B220F8447000A1C4D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		731EB0B620F8447300A1C4D0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				731EB0B720F8447300A1C4D0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		731EB0D220F8447300A1C4D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		731EB0D320F8447300A1C4D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		731EB0D520F8447300A1C4D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ONTWallet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.medishares.ONTWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		731EB0D620F8447300A1C4D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = ONTWallet/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.medishares.ONTWallet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		731EB0D820F8447300A1C4D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ONTWalletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.medishares.ONTWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ONTWallet.app/ONTWallet";
+			};
+			name = Debug;
+		};
+		731EB0D920F8447300A1C4D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ONTWalletTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.medishares.ONTWalletTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ONTWallet.app/ONTWallet";
+			};
+			name = Release;
+		};
+		731EB0DB20F8447300A1C4D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ONTWalletUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.medishares.ONTWalletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ONTWallet;
+			};
+			name = Debug;
+		};
+		731EB0DC20F8447300A1C4D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ONTWalletUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.medishares.ONTWalletUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ONTWallet;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		731EB0A320F8447000A1C4D0 /* Build configuration list for PBXProject "ONTWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				731EB0D220F8447300A1C4D0 /* Debug */,
+				731EB0D320F8447300A1C4D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		731EB0D420F8447300A1C4D0 /* Build configuration list for PBXNativeTarget "ONTWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				731EB0D520F8447300A1C4D0 /* Debug */,
+				731EB0D620F8447300A1C4D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		731EB0D720F8447300A1C4D0 /* Build configuration list for PBXNativeTarget "ONTWalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				731EB0D820F8447300A1C4D0 /* Debug */,
+				731EB0D920F8447300A1C4D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		731EB0DA20F8447300A1C4D0 /* Build configuration list for PBXNativeTarget "ONTWalletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				731EB0DB20F8447300A1C4D0 /* Debug */,
+				731EB0DC20F8447300A1C4D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 731EB0A020F8447000A1C4D0 /* Project object */;
+}
