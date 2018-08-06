@@ -1,0 +1,49 @@
+PODS:
+  - AFJSONRPCClient (2.1.1):
+    - AFNetworking (~> 2.1)
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.3):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - MJExtension (3.0.15.1)
+  - MTDates (1.0.3)
+
+DEPENDENCIES:
+  - AFJSONRPCClient
+  - AFNetworking
+  - MJExtension
+  - MTDates
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFJSONRPCClient
+    - AFNetworking
+    - MJExtension
+    - MTDates
+
+SPEC CHECKSUMS:
+  AFJSONRPCClient: 333bada91e6e45398446b8bd84e238e6f2389b1b
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  MTDates: c65affdfb7b34001c5c9e3fe0beac4b1b8334a58
+
+PODFILE CHECKSUM: 12f3886893e61815eec77f79d3866928365e81bb
+
+COCOAPODS: 1.5.3
