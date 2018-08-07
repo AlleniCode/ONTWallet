@@ -95,7 +95,7 @@
 }
 
 - (void)testImportWalletWithKeystore {
-    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet-1" password:@"ONT123ont" keystore:@"{\"scrypt\" : {\"r\" : 8,\"p\" : 8,\"n\" : 4096,\"dkLen\" : 64},\"address\" : \"APjeNaCXGAVVXKPe6n8wYgFjeh3mLoqHWV\",\"key\" : \"mLMLOpaZWhEcKNAN+p8rd43bmxDdY4t4DIK2eh1N2D51qhUCpnFlf4dl+op4uTk6\",\"label\" : \"ONT-Wallet\",\"type\" : \"A\",\"algorithm\" : \"ECDSA\",\"salt\" : \"\\/3qtmiaVilaqMdKVPPOeKA==\",\"parameters\" : {\"curve\" : \"P-256\"}}"];
+    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet-1" password:@"ONT123ont" keystore:@"{\"scrypt\":{\"r\":8,\"p\":8,\"n\":4096,\"dkLen\":64},\"address\":\"APjeNaCXGAVVXKPe6n8wYgFjeh3mLoqHWV\",\"key\": \"mLMLOpaZWhEcKNAN+p8rd43bmxDdY4t4DIK2eh1N2D51qhUCpnFlf4dl+op4uTk6\",\"label\":\"ONT-Wallet\",\"type\":\"A\",\"algorithm\":\"ECDSA\",\"salt\":\"\\/3qtmiaVilaqMdKVPPOeKA==\",\"parameters\":{\"curve\":\"P-256\"}}"];
     NSLog(@"=== 【ONTAccount】=== \n%@", account.description);
 }
 
