@@ -385,10 +385,10 @@
 		7347148021154BF400ADD665 /* ONTSDK */ = {
 			isa = PBXGroup;
 			children = (
-				73B1C4A82115F21C002FDFF2 /* ONTUtils */,
-				73B1C4A42115F18B002FDFF2 /* ONTModel */,
 				7347148121154BF400ADD665 /* ONTAPI */,
 				7347148221154BF400ADD665 /* ONTCore */,
+				73B1C4A42115F18B002FDFF2 /* ONTModel */,
+				73B1C4A82115F21C002FDFF2 /* ONTUtils */,
 			);
 			path = ONTSDK;
 			sourceTree = "<group>";
@@ -441,16 +441,16 @@
 		7347148621154BF400ADD665 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				7347148721154BF400ADD665 /* MnemonicCode.m */,
 				7347148821154BF400ADD665 /* ChildNumber.h */,
+				7347148D21154BF400ADD665 /* ChildNumber.m */,
+				7347148B21154BF400ADD665 /* DeterministicKey.h */,
+				7347148E21154BF400ADD665 /* DeterministicKey.m */,
+				7347149021154BF400ADD665 /* ECKey.h */,
 				7347148921154BF400ADD665 /* ECKey.m */,
 				7347148A21154BF400ADD665 /* ECKeySignature.h */,
-				7347148B21154BF400ADD665 /* DeterministicKey.h */,
-				7347148C21154BF400ADD665 /* MnemonicCode.h */,
-				7347148D21154BF400ADD665 /* ChildNumber.m */,
-				7347148E21154BF400ADD665 /* DeterministicKey.m */,
 				7347148F21154BF400ADD665 /* ECKeySignature.m */,
-				7347149021154BF400ADD665 /* ECKey.h */,
+				7347148C21154BF400ADD665 /* MnemonicCode.h */,
+				7347148721154BF400ADD665 /* MnemonicCode.m */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -467,8 +467,8 @@
 		7347149C21154BF400ADD665 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				7347149D21154BF400ADD665 /* NSMutableData+ONTScriptBuilder.m */,
 				7347149E21154BF400ADD665 /* NSMutableData+ONTScriptBuilder.h */,
+				7347149D21154BF400ADD665 /* NSMutableData+ONTScriptBuilder.m */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -487,16 +487,16 @@
 		734714A721154BF400ADD665 /* SmartContract */ = {
 			isa = PBXGroup;
 			children = (
-				734714A821154BF400ADD665 /* ONTNativeBuildParams.m */,
 				734714A921154BF400ADD665 /* ONTBool.h */,
+				734714AD21154BF400ADD665 /* ONTBool.m */,
+				734714B021154BF400ADD665 /* ONTInteger.h */,
 				734714AA21154BF400ADD665 /* ONTInteger.m */,
 				734714AB21154BF400ADD665 /* ONTLong.h */,
-				734714AC21154BF400ADD665 /* ONTStruct.m */,
-				734714AD21154BF400ADD665 /* ONTBool.m */,
-				734714AE21154BF400ADD665 /* ONTNativeBuildParams.h */,
 				734714AF21154BF400ADD665 /* ONTLong.m */,
-				734714B021154BF400ADD665 /* ONTInteger.h */,
+				734714AE21154BF400ADD665 /* ONTNativeBuildParams.h */,
+				734714A821154BF400ADD665 /* ONTNativeBuildParams.m */,
 				734714B121154BF400ADD665 /* ONTStruct.h */,
+				734714AC21154BF400ADD665 /* ONTStruct.m */,
 			);
 			path = SmartContract;
 			sourceTree = "<group>";

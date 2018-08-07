@@ -45,9 +45,10 @@
 /*
  === 【ONTAccount】===
  【name】== ONT-Wallet
- 【mnemonicText】== use dinner opinion jewel detail inquiry popular enough diary upper concert identify
- 【privateKeyHex】== c3cc0e31af0e085299b38962281fceeb39cca70ac4ecc3bbd46e25154a9fb317
- 【WIF】== L3nKDP3Wh3zmVktyFPGFegEUhJrpRcorosqk71X91rmjxnXtAFqb
+ 【mnemonicText】== club reflect ketchup rookie adapt copy produce object melody inmate century exhibit
+ 【encryptMnemonicText】== BbJjFCYTd6im1PCZGrit+7cjSi0Us9H5509rf4k4t/ahdGj94s4mzVHH/3NJoL48WTMJ3XtHjdu0ugAejNtBxFOkcsn0fvb3BH4OJa5dPP6dMnEeEyIlOkg9dsRMGKPp
+ 【privateKeyHex】== 442811de66a79e5234193dcfc8be47736acdc5add4307b27ab90047144225744
+ 【wif】== KyWCTBb5ynzMzPHYaGcWTQW6iPV4dYwugXbQw3vngr9RDST4hepH
  【keystore】== {
  "scrypt" : {
  "r" : 8,
@@ -55,43 +56,17 @@
  "n" : 4096,
  "dkLen" : 64
  },
- "address" : "AYHaPrwqqyH6SA64ayKtgrKAYRoW5eqLhL",
- "key" : "SF1j0sgL5ZJESA2Ve93OI+nZgBGkDU6yComp4OTl2RGIfyHcnGdq93nX9foioK8O",
+ "address" : "APjeNaCXGAVVXKPe6n8wYgFjeh3mLoqHWV",
+ "key" : "mLMLOpaZWhEcKNAN+p8rd43bmxDdY4t4DIK2eh1N2D51qhUCpnFlf4dl+op4uTk6",
  "label" : "ONT-Wallet",
  "type" : "A",
  "algorithm" : "ECDSA",
- "salt" : "fZdmYcHDh690DfxP4ZX+cg==",
+ "salt" : "\/3qtmiaVilaqMdKVPPOeKA==",
  "parameters" : {
  "curve" : "P-256"
  }
  }
- 【address】== AYHaPrwqqyH6SA64ayKtgrKAYRoW5eqLhL
- */
-
-/*
- === 【ONTAccount】===
- 【name】== ONT-Wallet
- 【mnemonicText】== fee door real prize indicate stick awkward wish range night erase apology
- 【privateKeyHex】== 75a4b56fc02485d1e3aa819ee781b2bafc93718b91d12d71ec2c2a5e87d1a993
- 【WIF】== L1APpZYSXqLepj6DUuQF13bcLcJXKPLnzRwMqA3B7R9ELnCzsmcN
- 【keystore】== {
- "scrypt" : {
- "r" : 8,
- "p" : 8,
- "n" : 4096,
- "dkLen" : 64
- },
- "address" : "AUq4ccLkTvcsY1P8kPsZP6EQtk1qikbh36",
- "key" : "1W2xmf8uvdeslsz0ONjzaPL5g+cq6qMiop+Cz6pzkiNm0FNq7bzvNSgGKxXN9Afm",
- "label" : "ONT-Wallet",
- "type" : "A",
- "algorithm" : "ECDSA",
- "salt" : "SlTafHmb0\/Qls47AOWxIMg==",
- "parameters" : {
- "curve" : "P-256"
- }
- }
- 【address】== AUq4ccLkTvcsY1P8kPsZP6EQtk1qikbh36
+ 【address】== APjeNaCXGAVVXKPe6n8wYgFjeh3mLoqHWV
  */
 - (void)testCreateNewWallet {
     ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT123ont"];
@@ -120,20 +95,26 @@
 }
 
 - (void)testImportWalletWithKeystore {
-    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet-1" password:@"ONT123ont" keystore:@"{\"address\":\"AGhTEEidUJxWgYMgXV7R4u979XNTwFMW3E\",\"scrypt\":{\"r\":8,\"p\":8,\"n\":4096,\"dkLen\":64},\"parameters\":{\"curve\":\"secp256r1\"},\"label\":\"ONT-11\",\"key\":\"d3CMcJzNc\\/gtc1RjZs2fOFVX4W96D9CUQl7\\/xNByNf\\/d0etHSDMjigAXFK37BQ3R\",\"type\":\"A\",\"algorithm\":\"ECDSA\",\"salt\":\"a14WS21HV5kLrQHTOIYvWQ==\"}"];
+    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet-1" password:@"ONT123ont" keystore:@"{\"scrypt\" : {\"r\" : 8,\"p\" : 8,\"n\" : 4096,\"dkLen\" : 64},\"address\" : \"APjeNaCXGAVVXKPe6n8wYgFjeh3mLoqHWV\",\"key\" : \"mLMLOpaZWhEcKNAN+p8rd43bmxDdY4t4DIK2eh1N2D51qhUCpnFlf4dl+op4uTk6\",\"label\" : \"ONT-Wallet\",\"type\" : \"A\",\"algorithm\" : \"ECDSA\",\"salt\" : \"\\/3qtmiaVilaqMdKVPPOeKA==\",\"parameters\" : {\"curve\" : \"P-256\"}}"];
     NSLog(@"=== 【ONTAccount】=== \n%@", account.description);
 }
 
 - (void)testSignAssetONT {
     ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
-    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONT toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:3 gasPrice:500 gasLimit:20000];
-    NSLog(@"txHex == %@", txHex);
+    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONT toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:@"1" gasPrice:500 gasLimit:20000];
+    NSLog(@"ONT txHex == %@", txHex);
 }
 
 - (void)testSignAssetONG {
     ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
-    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONG toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:3 gasPrice:500 gasLimit:20000];
-    NSLog(@"txHex == %@", txHex);
+    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONG toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:@"1" gasPrice:500 gasLimit:20000];
+    NSLog(@"ONG txHex == %@", txHex);
+}
+
+- (void)testSignClaimONG {
+    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
+    NSString *txHex = [account makeClaimOngTxWithAddress:account.address.address amount:@"0.001" gasPrice:500 gasLimit:1000];
+    NSLog(@"Claim ONG txHex == %@", txHex);
 }
 
 

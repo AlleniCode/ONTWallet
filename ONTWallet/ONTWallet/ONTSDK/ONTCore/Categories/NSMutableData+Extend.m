@@ -162,7 +162,6 @@ CFAllocatorRef SecureAllocator() {
         [self appendBytes:&b length:sizeof(b)];
     } while( i != 0 );
 }
-
 - (void)appendVarData:(NSData *)data{
     NSUInteger l = data.length;
     [self appendVarInt:l];
@@ -176,4 +175,31 @@ CFAllocatorRef SecureAllocator() {
     [self appendBytes:s.UTF8String length:l];
 }
 
+#pragma mark - ONT
+- (void)ont_appendVarInt:(uint64_t)i{
+    if (i < 0xFD) {
+        [self appendUInt8:i];
+    } else if (i <= 0xFFFF) {
+        [self appendUInt8:0xFD];
+        [self appendUInt16:(uint16_t)i];
+    } else if (i <= 0xFFFFFFFF) {
+        [self appendUInt8:0xFE];
+        [self appendUInt32:(uint32_t)i];
+    } else {
+        [self appendUInt8:0xFF];
+        [self appendUInt64:i];
+    }
+}
+- (void)ont_appendVarData:(NSData *)data{
+    NSUInteger l = data.length;
+    [self ont_appendVarInt:l];
+    [self appendBytes:data.bytes length:l];
+}
+
+- (void)ont_appendString:(NSString *)s{
+    NSUInteger l = [s lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+    
+    [self ont_appendVarInt:l];
+    [self appendBytes:s.UTF8String length:l];
+}
 @end

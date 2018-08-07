@@ -1,9 +1,9 @@
 //
 //  ONTRpcApi.m
-//  MediSharesiOS
+//  ONTWallet
 //
-//  Created by zhangyutao on 2018/7/23.
-//  Copyright © 2018年 zhongtuobang. All rights reserved.
+//  Created by zhangyutao on 2018/8/4.
+//  Copyright © 2018年 zhangyutao. All rights reserved.
 //
 
 #import "ONTRpcApi.h"
@@ -53,30 +53,30 @@ static ONTRpcApi *_instance = nil;
 
 - (void)getBestBlockHashCallback:(void (^)(NSString *, NSError *))callback {
     [self.client invokeMethod:@"getbestblockhash" withParameters:@[] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"【ONTRpcApi getBestBlockHash】%@", responseObject);
+        NSLog(@"【ONTRpcApi getbestblockhash】%@", responseObject);
         callback(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"【ONTRpcApi getBestBlockHash】%@", error);
+        NSLog(@"【ONTRpcApi getbestblockhash】%@", error);
         callback(nil, error);
     }];
 }
 
-- (void)getBlockWithTxHash:(NSString *)txHash verbose:(BOOL)verbose Callback:(void (^)(id, NSError *))callback {
+- (void)getBlockWithTxHash:(NSString *)txHash verbose:(BOOL)verbose callback:(void (^)(id, NSError *))callback {
     [self.client invokeMethod:@"getblock" withParameters:@[txHash, verbose?@(1):@(0)] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"【ONTRpcApi getBlockWithTxHash】%@", responseObject);
+        NSLog(@"【ONTRpcApi getblock】%@", responseObject);
         callback(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"【ONTRpcApi getBlockWithTxHash】%@", error);
+        NSLog(@"【ONTRpcApi getblock】%@", error);
         callback(nil, error);
     }];
 }
 
-- (void)getBlockWithHeight:(long)height verbose:(BOOL)verbose Callback:(void (^)(id, NSError *))callback {
+- (void)getBlockWithHeight:(long)height verbose:(BOOL)verbose callback:(void (^)(id, NSError *))callback {
     [self.client invokeMethod:@"getblock" withParameters:@[@(height), verbose?@(1):@(0)] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"【ONTRpcApi getBlockWithBlockHeight】%@", responseObject);
+        NSLog(@"【ONTRpcApi getblock】%@", responseObject);
         callback(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"【ONTRpcApi getBlockWithBlockHeight】%@", error);
+        NSLog(@"【ONTRpcApi getblock】%@", error);
         callback(nil, error);
     }];
 }
@@ -92,7 +92,7 @@ static ONTRpcApi *_instance = nil;
     }];
 }
 
-+ (void)getBlockCountWithUrl:(NSString *)urlString Callback:(void (^)(NSInteger blockCount, NSError *error))callback {
++ (void)getBlockCountWithUrl:(NSString *)urlString callback:(void (^)(NSInteger blockCount, NSError *error))callback {
     if (urlString && urlString.length > 0) {
         AFJSONRPCClient *client = [AFJSONRPCClient clientWithEndpointURL:[NSURL URLWithString:urlString]];
         [client invokeMethod:@"getblockcount" withParameters:@[] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -110,10 +110,10 @@ static ONTRpcApi *_instance = nil;
 
 - (void)getBlockHashWithHeight:(long)height callback:(void (^)(NSString *txHash, NSError *error))callback {
     [self.client invokeMethod:@"getblockhash" withParameters:@[@(height)] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"【ONTRpcApi getBlockHashWithHeight】%@", responseObject);
+        NSLog(@"【ONTRpcApi getblockhash】%@", responseObject);
         callback(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"【ONTRpcApi getBlockHashWithHeight】%@", error);
+        NSLog(@"【ONTRpcApi getblockhash】%@", error);
         callback(nil, error);
     }];
 }
@@ -129,7 +129,7 @@ static ONTRpcApi *_instance = nil;
     }];
 }
 
-+ (void)getConnectionCountWithUrl:(NSString *)urlString Callback:(void (^)(NSInteger connectionCount, NSError *error))callback {
++ (void)getConnectionCountWithUrl:(NSString *)urlString callback:(void (^)(NSInteger connectionCount, NSError *error))callback {
     if (urlString && urlString.length > 0) {
         AFJSONRPCClient *client = [AFJSONRPCClient clientWithEndpointURL:[NSURL URLWithString:urlString]];
         [client invokeMethod:@"getconnectioncount" withParameters:@[] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -147,10 +147,10 @@ static ONTRpcApi *_instance = nil;
 
 - (void)getRawtransactionWithTxHash:(NSString *)txHash verbose:(BOOL)verbose callback:(void (^)(id result, NSError *error))callback {
     [self.client invokeMethod:@"getrawtransaction" withParameters:@[txHash, verbose?@(1):@(0)] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"【ONTRpcApi getRawtransactionWithTxHash】%@", responseObject);
+        NSLog(@"【ONTRpcApi getrawtransaction】%@", responseObject);
         callback(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"【ONTRpcApi getRawtransactionWithTxHash】%@", error);
+        NSLog(@"【ONTRpcApi getrawtransaction】%@", error);
         callback(nil, error);
     }];
 }
@@ -301,10 +301,10 @@ static ONTRpcApi *_instance = nil;
 
 - (void)getUnboundOng:(NSString *)address callback:(void (^)(NSString *, NSError *))callback {
     [self.client invokeMethod:@"getunboundong" withParameters:@[address] requestId:@(3) success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"【ONTRpcApi getUnclaimedOng】%@", responseObject);
+        NSLog(@"【ONTRpcApi getunboundong】%@", responseObject);
         callback(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"【ONTRpcApi getUnclaimedOng】%@", error);
+        NSLog(@"【ONTRpcApi getunboundong】%@", error);
         callback(nil, error);
     }];
 }
@@ -328,13 +328,5 @@ static ONTRpcApi *_instance = nil;
         callback(nil, error);
     }];
 }
-
-
-
-
-
-
-
-
 
 @end

@@ -1,9 +1,9 @@
 //
 //  ONTNativeBuildParams.m
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/25.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import "ONTNativeBuildParams.h"
@@ -64,6 +64,7 @@
                 [data addOpcode:ONT_OPCODE_SWAP];
                 [data addOpcode:ONT_OPCODE_APPEND];
             }
+            [data addOpcode:ONT_OPCODE_FROMALTSTACK];
         }else if ([val isKindOfClass:ONTStructs.class]){
             [data pushNumber:@(0)];
             [data addOpcode:ONT_OPCODE_NEWSTRUCT];

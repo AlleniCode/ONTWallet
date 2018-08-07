@@ -49,6 +49,9 @@
     // Send ONG
     //[self testSendONG];
     
+    // Claim ONG
+    //[self testClaimONG];
+    
     //GET Storage WithScript Hash
     //[self testGetStorageWithScriptHash];
     
@@ -110,7 +113,7 @@
 }
 
 - (void)testGetBlockWithTxHash {
-    [[ONTRpcApi shareInstance] getBlockWithTxHash:@"8d1e6acf0e304cba71e92fb47cb67e72b586b646508cee941405bb2e2dddaee2" verbose:NO Callback:^(id result, NSError *error) {
+    [[ONTRpcApi shareInstance] getBlockWithTxHash:@"8d1e6acf0e304cba71e92fb47cb67e72b586b646508cee941405bb2e2dddaee2" verbose:NO callback:^(id result, NSError *error) {
         if (error) {
             NSLog(@"error == %@", error);
         } else {
@@ -120,7 +123,7 @@
 }
 
 - (void)testGetBlockWithHeight {
-    [[ONTRpcApi shareInstance] getBlockWithHeight:108172 verbose:NO Callback:^(id result, NSError *error) {
+    [[ONTRpcApi shareInstance] getBlockWithHeight:108172 verbose:NO callback:^(id result, NSError *error) {
         if (error) {
             NSLog(@"error == %@", error);
         } else {
@@ -171,7 +174,7 @@
 
 - (void)testSendONT {
     ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
-    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONT toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:3 gasPrice:500 gasLimit:20000];
+    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONT toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:@"10" gasPrice:500 gasLimit:20000];
     NSLog(@"txHex == %@", txHex);
     
     [[ONTRpcApi shareInstance] sendRawtransactionWithHexTx:txHex preExec:NO callback:^(NSString *txHash, NSError *error) {
@@ -186,10 +189,26 @@
 
 - (void)testSendONG {
     ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
-    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONG toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:3 gasPrice:500 gasLimit:20000];
+    NSString *txHex = [account makeTransferTxWithToken:ONTTokenTypeONG toAddress:@"AatvPQVe1RECTqoAxe9FtSdWGnABVjMExv" amount:@"3" gasPrice:500 gasLimit:20000];
     NSLog(@"txHex == %@", txHex);
     
     [[ONTRpcApi shareInstance] sendRawtransactionWithHexTx:txHex preExec:NO callback:^(NSString *txHash, NSError *error) {
+        if (error) {
+            NSLog(@"error == %@", error);
+        } else {
+            NSLog(@"txHash == %@", txHash);
+            NSLog(@"View on explorer：%@", kONTScanTxURL(txHash));
+        }
+    }];
+}
+
+- (void)testClaimONG {
+    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
+    NSString *txHex = [account makeClaimOngTxWithAddress:account.address.address amount:@"0.000000001" gasPrice:500 gasLimit:20000];
+    NSLog(@"Claim ONG txHex == %@", txHex);
+    
+    [[ONTRpcApi shareInstance] sendRawtransactionWithHexTx:txHex preExec:NO callback:^(NSString *txHash, NSError *error) {
+        NSLog(@"txHash == %@,error:%@",txHash, error);
         if (error) {
             NSLog(@"error == %@", error);
         } else {
@@ -336,11 +355,6 @@
         }
     }];
 }
-
-
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

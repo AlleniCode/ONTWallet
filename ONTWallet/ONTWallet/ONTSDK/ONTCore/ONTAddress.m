@@ -1,9 +1,9 @@
 //
 //  ONTAddress.m
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/24.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import "ONTAddress.h"

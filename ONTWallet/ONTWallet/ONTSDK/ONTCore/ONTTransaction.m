@@ -1,9 +1,9 @@
 //
 //  ONTTransaction.m
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/23.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import "ONTTransaction.h"
@@ -38,7 +38,7 @@
     [stream appendData:_payer.publicKeyHash160];
     [self toExclusiveByte:stream];
     // Attributes
-    [stream appendVarInt:_attributes.count];
+    [stream ont_appendVarInt:_attributes.count];
     for (ONTAttribute *attribute in _attributes) {
         [attribute toByte:stream];
     }
@@ -51,7 +51,7 @@
     NSMutableData *stream = [NSMutableData new];
     [stream appendData:[self toByte]];
     // Signatures
-    [stream appendVarInt:_signatures.count];
+    [stream ont_appendVarInt:_signatures.count];
     for (ONTSignature *signature in _signatures) {
         [signature toByte:stream];
     }

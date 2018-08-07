@@ -1,9 +1,9 @@
 //
 //  ONTUtils.m
-//  MediSharesiOS
+//  ONTWallet
 //
-//  Created by zhangyutao on 2018/7/13.
-//  Copyright © 2018年 zhongtuobang. All rights reserved.
+//  Created by zhangyutao on 2018/8/4.
+//  Copyright © 2018年 zhangyutao. All rights reserved.
 //
 
 #import "ONTUtils.h"

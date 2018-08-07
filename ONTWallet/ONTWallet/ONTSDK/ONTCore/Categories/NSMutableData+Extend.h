@@ -60,10 +60,17 @@ CFAllocatorRef SecureAllocator(void);
 
 - (void)appendUInt64:(uint64_t)i;
 
+
+#pragma mark - EOS
 - (void)appendVarInt:(uint64_t)i;
 
 - (void)appendVarData:(NSData *)data;
 
 - (void)appendString:(NSString *)s;
 
+
+#pragma mark - ONT
+- (void)ont_appendVarInt:(uint64_t)i;
+- (void)ont_appendVarData:(NSData *)data;
+- (void)ont_appendString:(NSString *)s;
 @end

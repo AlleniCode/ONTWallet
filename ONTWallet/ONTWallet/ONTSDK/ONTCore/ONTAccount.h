@@ -1,9 +1,9 @@
 //
 //  ONTAccount.h
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/13.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -84,6 +84,28 @@ typedef NS_ENUM(NSUInteger, ONTTokenType) {
  */
 - (instancetype)initWithName:(NSString *)name password:(NSString *)password keystore:(NSString *)keystore;
 
-- (NSString *)makeTransferTxWithToken:(ONTTokenType)tokenType toAddress:(NSString *)toAddress amount:(long)amount gasPrice:(long)gasPrice gasLimit:(long)gasLimit;
+
+/**
+ 构造 ONT、ONG 交易
+
+ @param tokenType ONT、ONG
+ @param toAddress 收款地址
+ @param amount 转账金额
+ @param gasPrice 默认 500
+ @param gasLimit 默认 20000
+ @return TxHex
+ */
+- (NSString *)makeTransferTxWithToken:(ONTTokenType)tokenType toAddress:(NSString *)toAddress amount:(NSString *)amount gasPrice:(long)gasPrice gasLimit:(long)gasLimit;
+
+/**
+ 构造提取 ONG 交易
+
+ @param address 提取地址
+ @param amount 提取金额
+ @param gasPrice 默认 500
+ @param gasLimit 默认 20000
+ @return TxHex
+ */
+- (NSString *)makeClaimOngTxWithAddress:(NSString *)address amount:(NSString *)amount gasPrice:(long)gasPrice gasLimit:(long)gasLimit;
 
 @end

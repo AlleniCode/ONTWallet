@@ -1,9 +1,9 @@
 //
 //  ONTInvokeCode.m
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/24.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import "ONTInvokeCode.h"
@@ -31,8 +31,7 @@
     
     
     ONTInvokeCode *invokeCode = [[ONTInvokeCode alloc] init];
-//    invokeCode.nonce = arc4random_uniform(INT_MAX);
-    invokeCode.nonce = 2;
+    invokeCode.nonce = arc4random_uniform(INT_MAX);
     invokeCode.gasLimit = gasLimit;
     invokeCode.gasPrice = gasPrice;
     invokeCode.payer = payer;
@@ -44,6 +43,6 @@
  * @brief Obtaining Exclusive byte stream data
  */
 - (void)toExclusiveByte:(NSMutableData *)stream{
-    [stream appendVarData:_code];
+    [stream ont_appendVarData:_code];
 }
 @end

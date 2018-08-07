@@ -1,9 +1,9 @@
 //
 //  ONTRpcApi.h
-//  MediSharesiOS
+//  ONTWallet
 //
-//  Created by zhangyutao on 2018/7/23.
-//  Copyright © 2018年 zhongtuobang. All rights reserved.
+//  Created by zhangyutao on 2018/8/4.
+//  Copyright © 2018年 zhangyutao. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -18,21 +18,21 @@
 - (void)getBestBlockHashCallback:(void (^)(NSString *txHash, NSError *error))callback;
 
 //通过区块哈希得到区块(verbose为可选参数，默认值为0，可选值为1)
-- (void)getBlockWithTxHash:(NSString *)txHash verbose:(BOOL)verbose Callback:(void (^)(id result, NSError *error))callback;
+- (void)getBlockWithTxHash:(NSString *)txHash verbose:(BOOL)verbose callback:(void (^)(id result, NSError *error))callback;
 
 //通过区块高度得到区块(verbose为可选参数，默认值为0，可选值为1)
-- (void)getBlockWithHeight:(long)height verbose:(BOOL)verbose Callback:(void (^)(id result, NSError *error))callback;
+- (void)getBlockWithHeight:(long)height verbose:(BOOL)verbose callback:(void (^)(id result, NSError *error))callback;
 
 //得到主链上的区块总量
 - (void)getBlockCountCallback:(void (^)(NSInteger blockCount, NSError *error))callback;
-+ (void)getBlockCountWithUrl:(NSString *)urlString Callback:(void (^)(NSInteger blockCount, NSError *error))callback;
++ (void)getBlockCountWithUrl:(NSString *)urlString callback:(void (^)(NSInteger blockCount, NSError *error))callback;
 
 //得到对应高度的区块的哈希
 - (void)getBlockHashWithHeight:(long)height callback:(void (^)(NSString *txHash, NSError *error))callback;
 
 //得到当前网络上连接的节点数
 - (void)getConnectionCountCallback:(void (^)(NSInteger connectionCount, NSError *error))callback;
-+ (void)getConnectionCountWithUrl:(NSString *)urlString Callback:(void (^)(NSInteger connectionCount, NSError *error))callback;
++ (void)getConnectionCountWithUrl:(NSString *)urlString callback:(void (^)(NSInteger connectionCount, NSError *error))callback;
 
 //通过交易哈希得到交易详情
 - (void)getRawtransactionWithTxHash:(NSString *)txHash verbose:(BOOL)verbose callback:(void (^)(id result, NSError *error))callback;
@@ -82,10 +82,5 @@
 
 //获取 network id
 - (void)getNetworkIDCallback:(void (^)(id result, NSError *error))callback;
-
-
-
-
-
 
 @end

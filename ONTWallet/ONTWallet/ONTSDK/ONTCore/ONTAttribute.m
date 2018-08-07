@@ -1,9 +1,9 @@
 //
 //  ONTAttribute.m
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/24.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import "ONTAttribute.h"
@@ -17,7 +17,7 @@
  */
 - (void)toByte:(NSMutableData *)stream{
     [stream appendUInt8:_usage];
-    [stream appendVarData:_data];
+    [stream ont_appendVarData:_data];
 }
 
 @end

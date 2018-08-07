@@ -1,9 +1,9 @@
 //
 //  ONTAccount.m
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/13.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import "ONTAccount.h"
@@ -232,7 +232,7 @@
     char stop = 0;
     
     // Salt
-    NSData *salt = [[NSData randomWithSize:16] base64];
+    NSData *salt = [NSData randomWithSize:16];
     // Result
     NSMutableDictionary *keystore = [NSMutableDictionary dictionary];
     [keystore setObject:@"A" forKey:@"type"];
@@ -248,7 +248,7 @@
                           @"curve":@"P-256"
                           } forKey:@"parameters"];
     [keystore setObject:@"ECDSA" forKey:@"algorithm"];
-    [keystore setObject:[[NSString alloc] initWithData:salt encoding:NSUTF8StringEncoding] forKey:@"salt"];
+    [keystore setObject:[[NSString alloc] initWithData:salt.base64 encoding:NSUTF8StringEncoding] forKey:@"salt"];
     
     // Private Key
     NSData *passwordData = [[password precomposedStringWithCompatibilityMapping] dataUsingEncoding:NSUTF8StringEncoding];
@@ -283,12 +283,9 @@
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
-- (NSString *)makeTransferTxWithToken:(ONTTokenType)tokenType toAddress:(NSString *)toAddress amount:(long)amount gasPrice:(long)gasPrice gasLimit:(long)gasLimit {
+- (NSString *)makeTransferTxWithToken:(ONTTokenType)tokenType toAddress:(NSString *)toAddress amount:(NSString *)amount gasPrice:(long)gasPrice gasLimit:(long)gasLimit {
     ONTECKey *ecKey = [[ONTECKey alloc] initWithPriKey:self.privateKey.data];
     ONTPublicKey *publicKey = [[ONTPublicKey alloc] initWithData:ecKey.publicKeyAsData];
-    NSLog(@"公钥[%@]",publicKey.data.hexString);
-    NSLog(@"公钥地址[%@]",publicKey.toAddress);
-    NSLog(@"公钥Hash160[%@]",publicKey.toAddress.publicKeyHash160.hexString);
     
     ONTAddress *from = publicKey.toAddress;
     ONTAddress *to = [[ONTAddress alloc] initWithAddressString:toAddress];
@@ -301,12 +298,13 @@
     }
     
     ONTStruct *ontStruct = [[ONTStruct alloc] init];
-    [ontStruct add:from.publicKeyHash160];
-    [ontStruct add:to.publicKeyHash160];
+    [ontStruct add:from];
+    [ontStruct add:to];
+    NSDecimalNumber *amountValue = [NSDecimalNumber decimalNumberWithString:amount];
     if (tokenType == ONTTokenTypeONT) {
-        [ontStruct add:[[ONTLong alloc] initWithLong:amount]];
-    } else {
-        [ontStruct add:[[ONTLong alloc] initWithLong:amount*1000000000]];
+        [ontStruct add:[[ONTLong alloc] initWithLong:(long)(amountValue.doubleValue)]];
+    } else if (tokenType == ONTTokenTypeONG) {
+        [ontStruct add:[[ONTLong alloc] initWithLong:(long)(amountValue.doubleValue*1000000000)]];
     }
     
     ONTStructs *structs = [[ONTStructs alloc] init];
@@ -321,16 +319,44 @@
     // 签名
     ECKeySignature *sign = [ecKey sign:transaction.getSignHash];
     [transaction.signatures addObject:[[ONTSignature alloc] initWithPublicKey:ecKey.publicKeyAsData signature:sign.toDataNoV]];
-    NSLog(@"sign hash\n%@",transaction.toByte.SHA256_2.hexString);
-    NSLog(@"sign message\n%@",sign.toDataNoV.hexString);
-    NSLog(@"%@",transaction.toRawByte.hexString);
+    
+    NSString *txHex = transaction.toRawByte.hexString;
+    return txHex;
+}
+
+- (NSString *)makeClaimOngTxWithAddress:(NSString *)address amount:(NSString *)amount gasPrice:(long)gasPrice gasLimit:(long)gasLimit {
+    ONTECKey *ecKey = [[ONTECKey alloc] initWithPriKey:self.privateKey.data];
+    ONTPublicKey *publicKey = [[ONTPublicKey alloc] initWithData:ecKey.publicKeyAsData];
+    
+    ONTAddress *from = publicKey.toAddress;
+    ONTAddress *to = [[ONTAddress alloc] initWithAddressString:address];
+    
+    ONTAddress *ontContractAddress = [[ONTAddress alloc] initWithData:ONT_CONTRACT.hexToData];
+    ONTAddress *ongContractAddress = [[ONTAddress alloc] initWithData:ONG_CONTRACT.hexToData];
+    
+    ONTStruct *ontStruct = [[ONTStruct alloc] init];
+    [ontStruct add:from];
+    [ontStruct add:ontContractAddress];
+    [ontStruct add:to];
+    NSDecimalNumber *amountValue = [NSDecimalNumber decimalNumberWithString:amount];
+    [ontStruct add:[[ONTLong alloc] initWithLong:(long)(amountValue.doubleValue*1000000000)]];
+    
+    NSMutableArray *array = [NSMutableArray new];
+    [array addObject:ontStruct];
+    
+    NSData *args = [ONTNativeBuildParams createCodeParamsScript:array];
+    ONTTransaction *transaction = [ONTInvokeCode invokeCodeTransaction:ongContractAddress initMethod:@"transferFrom" args:args payer:from gasLimit:gasLimit gasPrice:gasPrice];
+    
+    // 签名
+    ECKeySignature *sign = [ecKey sign:transaction.getSignHash];
+    [transaction.signatures addObject:[[ONTSignature alloc] initWithPublicKey:ecKey.publicKeyAsData signature:sign.toDataNoV]];
     
     NSString *txHex = transaction.toRawByte.hexString;
     return txHex;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"【name】== %@\n【mnemonicText】== %@\n【encryptMnemonicText】== %@\n【privateKeyHex】== %@\n【WIF】== %@\n【keystore】== %@\n【address】== %@", self.name, self.mnemonicText, self.encryptMnemonicText, self.privateKeyHex, self.wif, self.keystore, self.address.address];
+    return [NSString stringWithFormat:@"【name】== %@\n【mnemonicText】== %@\n【encryptMnemonicText】== %@\n【privateKeyHex】== %@\n【wif】== %@\n【keystore】== %@\n【address】== %@", self.name, self.mnemonicText, self.encryptMnemonicText, self.privateKeyHex, self.wif, self.keystore, self.address.address];
 }
 
 @end

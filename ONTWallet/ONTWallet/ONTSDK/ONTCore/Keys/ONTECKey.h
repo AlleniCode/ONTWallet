@@ -8,7 +8,6 @@
 
 #import "ECKey.h"
 
-
 @interface ONTECKey : ECKey
 
 @end

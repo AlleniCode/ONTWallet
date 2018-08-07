@@ -1,9 +1,9 @@
 //
 //  ONTSignature.m
-//  eos4O
+//  ONTWallet
 //
 //  Created by Yuzhiyou on 2018/7/26.
-//  Copyright © 2018年 MediShares. All rights reserved.
+//  Copyright © 2018年 Yuzhiyou. All rights reserved.
 //
 
 #import "ONTSignature.h"
@@ -39,15 +39,15 @@
  * @brief Obtaining complete byte stream data
  */
 - (void)toByte:(NSMutableData *)stream{
-    [stream appendVarData:[self programFromSignatures:_signatureDatas]];
+    [stream ont_appendVarData:[self programFromSignatures:_signatureDatas]];
     
     if (!_publicKeys || _publicKeys.count == 0) {
         return;
     }
     if (_publicKeys.count == 1) {
-        [stream appendVarData:[self programFromPubKey:_publicKeys[0]]];
+        [stream ont_appendVarData:[self programFromPubKey:_publicKeys[0]]];
     }else {
-        [stream appendVarData:[self programFromMultiPubKey:_publicKeys m:_M]];
+        [stream ont_appendVarData:[self programFromMultiPubKey:_publicKeys m:_M]];
     }
 }
 #pragma mark - Utils
