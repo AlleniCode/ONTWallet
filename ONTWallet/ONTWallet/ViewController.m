@@ -12,6 +12,7 @@
 #import "ONTAccount.h"
 #import "ONTRpcApi.h"
 #import "ONTBalance.h"
+#import "ONTMnemonicCode.h"
 
 @interface ViewController ()
 
@@ -21,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Creat wallet
+    [self testCreateNewWallet];
     
     // GET Get Best Block Hash
     //[self testGetBestBlockHash];
@@ -100,6 +104,18 @@
     // Get Network ID
     //[self testGetNetworkID];
     
+}
+
+- (void)testCreateNewWallet {
+    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT123ont"];
+    NSLog(@"=== 【ONTAccount】=== \n%@", account.description);
+    NSLog(@"=== 【ONTAccount】=== \n%@", account.encryptMnemonicText);
+    NSString *mnemonicText = [ONTMnemonicCode decryptMnemonicCode:account.encryptMnemonicText password:@"ONT123ont" address:account.address.address];
+    if ([mnemonicText isEqualToString:account.mnemonicText]) {
+        NSLog(@"助记词解析正确！！！");
+    } else {
+        NSLog(@"助记词解析错误！！！");
+    }
 }
 
 - (void)testGetBestBlockHash {

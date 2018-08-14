@@ -143,7 +143,7 @@
 + (NSData *)decodeBase64:(NSString *)base64String{
     return  [[NSData alloc] initWithBase64EncodedString:base64String options:0];
 }
-+ (NSData *)randomWithSize:(int)size; {
++ (NSData *)randomWithSize:(int)size {
     OSStatus sanityCheck = noErr;
     uint8_t *bytes = NULL;
     bytes = malloc(size * sizeof(uint8_t));

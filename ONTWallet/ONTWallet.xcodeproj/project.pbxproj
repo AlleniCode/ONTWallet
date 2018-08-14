@@ -573,13 +573,13 @@
 		734714EA21154CA200ADD665 /* AesGcm */ = {
 			isa = PBXGroup;
 			children = (
+				734714EE21154CA200ADD665 /* Components */,
+				734714FA21154CA200ADD665 /* IAGAesGcm.h */,
 				734714EB21154CA200ADD665 /* IAGAesGcm.m */,
 				734714EC21154CA200ADD665 /* IAGCipheredData.h */,
-				734714ED21154CA200ADD665 /* IAGError.h */,
-				734714EE21154CA200ADD665 /* Components */,
-				734714F821154CA200ADD665 /* IAGError.m */,
 				734714F921154CA200ADD665 /* IAGCipheredData.m */,
-				734714FA21154CA200ADD665 /* IAGAesGcm.h */,
+				734714ED21154CA200ADD665 /* IAGError.h */,
+				734714F821154CA200ADD665 /* IAGError.m */,
 			);
 			path = AesGcm;
 			sourceTree = "<group>";
@@ -1104,6 +1104,7 @@
 			baseConfigurationReference = 5D487DF2A23FCAD186719A5E /* Pods-ONTWallet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1137,6 +1138,7 @@
 			baseConfigurationReference = 1A7E3002F8075FAC95E4635D /* Pods-ONTWallet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (

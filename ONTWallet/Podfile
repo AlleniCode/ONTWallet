@@ -10,6 +10,9 @@ target 'ONTWallet' do
     pod 'AFJSONRPCClient'
     pod 'MJExtension'
     pod 'MTDates'
+    #Bitcoin
+    #【Try going Build Settings under "Target" and set "Allow Non-modular Includes in Framework Modules" to YES.】
+    #pod 'CoreBitcoin', :git => 'https://github.com/AlleniCode/CoreBitcoin.git'
 
   target 'ONTWalletTests' do
     inherit! :search_paths
