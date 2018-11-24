@@ -14,17 +14,34 @@
 #import "ONTBalance.h"
 #import "ONTMnemonicCode.h"
 
+#import "Oep4.h"
+#import "NeoVM.h"
+
 @interface ViewController ()
+
+@property(nonatomic, strong) NSString *privateKey;
+@property(nonatomic, strong) NSString *contractAddress;
 
 @end
 
 @implementation ViewController
 
+- (void)configData {
+    // 地址：AQf4Mzu1YJrhz9f3aRkkwSm9n3qhXGSh4p
+    _privateKey = @"5f2fe68215476abb9852cfa7da31ef00aa1468782d5ca809da5c4e1390b8ee45";
+    
+    // OEP4 Token: MyToken、MYT、8
+    _contractAddress = @"b0bc9d8eb833c9903fa2e794f8413f6366f721ce";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Config Data
+    [self configData];
+    
     // Creat wallet
-    [self testCreateNewWallet];
+    //[self testCreateNewWallet];
     
     // GET Get Best Block Hash
     //[self testGetBestBlockHash];
@@ -104,6 +121,20 @@
     // Get Network ID
     //[self testGetNetworkID];
     
+    
+    // OEP4
+    
+    //[self testOep4Init];
+    
+    [self testOep4QueryBalanceOf];
+    //[self testOep4QueryDecimals];
+    //[self testOep4Queries];
+    
+    //[self testSendOep4];
+    
+    //[self testOep4Approve];
+    //[self testOep4SendTransferFrom];
+    //[self testOep4QueryAllowance];
 }
 
 - (void)testCreateNewWallet {
@@ -372,9 +403,169 @@
     }];
 }
 
+
+#pragma mark - OEP4
+- (void)testOep4Init {
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    ONTAccount *acct = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
+    
+    NSLog(@"from address:%@", acct.address.address);
+    
+    BOOL isPreExec = YES;
+    [[NeoVM shareInstance].oep4 sendInit:acct
+                              byGasPayer:acct
+                             useGasLimit:0//10000000
+                             useGasPrice:0//500
+                                 preExec:isPreExec
+                           queryCallback:^(id result, NSError *error) {
+                               if (error) {
+                                   NSLog(@"error == %@", error);
+                               } else {
+                                   if (isPreExec) {
+                                       NSLog(@"result == %@", result);
+                                   } else {
+                                       NSString *txhash = (NSString *)result;
+                                       NSLog(@"txhash == %@", txhash);
+                                       
+                                       [self testOep4QueryBalanceOf];
+                                   }
+                               }
+                           }];
+}
+
+- (void)testOep4QueryBalanceOf {
+    ONTAccount *account = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456" privateKeyHex:_privateKey];
+    NSLog(@"%@", account.address.address);
+    
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    [[NeoVM shareInstance].oep4 queryBalanceOf:account.address.address queryCallback:^(NSString *balance, NSError *error) {
+        NSLog(@"balance == %@, %@", balance, [error localizedDescription]);
+    }];
+}
+
+- (void)testOep4QueryDecimals {
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    [[NeoVM shareInstance].oep4 queryDecimalsWithQueryCallback:^(NSString *result, NSError *error) {
+        NSLog(@"result == %@, %@", result, [error localizedDescription]);
+    }];
+}
+
+- (void)testOep4Queries {
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    [[NeoVM shareInstance].oep4 queryTotalSupply:^(NSString *result, NSError *error) {
+        NSLog(@"result == %@, %@", result, [error localizedDescription]);
+    }];
+    [[NeoVM shareInstance].oep4 queryName:^(NSString *result, NSError *error) {
+        NSLog(@"result == %@, %@", result, [error localizedDescription]);
+    }];
+    [[NeoVM shareInstance].oep4 querySymbol:^(NSString *result, NSError *error) {
+        NSLog(@"result == %@, %@", result, [error localizedDescription]);
+    }];
+}
+
+- (void)testSendOep4 {
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    ONTAccount *from = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456" privateKeyHex:_privateKey];
+    NSLog(@"from address:%@", from.address.address);
+    
+    BOOL isPreExec = NO;
+    [[NeoVM shareInstance].oep4 sendTransfer:from
+                                          to:@"ASrLANryFnqwSt76h2YbhssdZeRGagRYem"
+                                  withAmount:100000000
+                                  byGasPayer:from
+                                 useGasLimit:20000
+                                 useGasPrice:500
+                                     preExec:isPreExec
+                               queryCallback:^(id result, NSError *error) {
+                                   if (error) {
+                                       NSLog(@"error == %@", error);
+                                   } else {
+                                       if (isPreExec) {
+                                           NSLog(@"result == %@", result);
+                                       } else {
+                                           NSString *txhash = (NSString *)result;
+                                           NSLog(@"txhash == %@", txhash);
+                                           
+                                           [self testOep4QueryBalanceOf];
+                                       }
+                                   }
+                               }];
+}
+
+- (void)testOep4Approve {
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    ONTAccount *owner = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT1234567890" wif:@"L2pGnv7waHczPursyuGDCBBU6GuoVBHkKF6uKjeFfiy584LQUqir"];
+    NSLog(@"from address:%@", owner.address.address);
+    
+    BOOL isPreExec = NO;
+    [[NeoVM shareInstance].oep4 sendApprove:owner
+                                  toSpender:@"AUvfyDwjEeCrBZWYTakazA9hQVQnaxYX46"
+                                 withAmount:100000000
+                                 byGasPayer:owner
+                                useGasLimit:20000
+                                useGasPrice:500
+                                    preExec:isPreExec
+                              queryCallback:^(id result, NSError *error) {
+                                  if (isPreExec) {
+                                      NSLog(@"result == %@", result);
+                                  } else {
+                                      NSString *txhash = (NSString *)result;
+                                      NSLog(@"txhash == %@", txhash);
+                                      
+                                      [self testOep4QueryAllowance];
+                                  }
+                              }];
+}
+
+- (void)testOep4SendTransferFrom {
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    //ONTAccount *sender = [[ONTAccount alloc] initWithName:@"ONT-Wallet" password:@"ONT123ont" wif:@"L44EwAY5X8afopnLxbytoU9KGH9pCZP37WxrvnDgvMkei9wrBfUe"];
+    ONTAccount *sender = [[ONTAccount alloc] initWithName:@"ONT" password:@"123456" privateKeyHex:_privateKey];
+    
+    NSLog(@"from address:%@", sender.address.address);
+    
+    BOOL isPreExec = NO;
+    [[NeoVM shareInstance].oep4 sendTransferFrom:sender
+                                            from:sender.address.address
+                                              to:@"AUwN8rcsEK4TkiYZFCdcjdxChx2aEHG3DN"
+                                      withAmount:100000000
+                                      byGasPayer:sender
+                                     useGasLimit:20000
+                                     useGasPrice:500
+                                         preExec:isPreExec
+                                   queryCallback:^(id result, NSError *error) {
+                                       if (isPreExec) {
+                                           NSString* gasConsumed = [(NSDictionary*)result objectForKey:@"Gas"];
+                                           NSLog(@"\ngasConsumed === %@", gasConsumed);
+                                           NSLog(@"\nGas == %@", result);
+                                       } else {
+                                           NSString* txhash = (NSString*)result;
+                                           NSLog(@"\ntxhash == %@", txhash);
+                                           [self testOep4QueryAllowance];
+                                       }
+                                   }];
+}
+
+- (void)testOep4QueryAllowance {
+    [NeoVM shareInstance].oep4.contractAddress = _contractAddress;
+    
+    [[NeoVM shareInstance].oep4 queryAllowance:@"AQf4Mzu1YJrhz9f3aRkkwSm9n3qhXGSh4p"
+                                   withSpender:@"AUvfyDwjEeCrBZWYTakazA9hQVQnaxYX46"
+                                 queryCallback:^(NSString *balance, NSError *error) {
+                                     NSLog(@"balance == %@, %@", balance, [error localizedDescription]);
+                                 }];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

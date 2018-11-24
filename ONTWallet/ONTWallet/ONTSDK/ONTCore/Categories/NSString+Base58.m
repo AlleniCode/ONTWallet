@@ -170,6 +170,9 @@ static const UniChar base58chars[] = {
 }
 
 + (NSData*)fromHexString:(NSString*)str {
+    if (!str || str.length % 2 != 0) {
+        return nil;
+    }
     NSMutableData *data = [NSMutableData new];
     for (int i = 0; i < str.length; i+=2) {
         NSString *hexChar = [str substringWithRange:NSMakeRange(i, 2)];

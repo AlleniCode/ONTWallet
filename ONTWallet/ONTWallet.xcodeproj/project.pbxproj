@@ -16,6 +16,11 @@
 		731EB0BB20F8447300A1C4D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0BA20F8447300A1C4D0 /* main.m */; };
 		731EB0C520F8447300A1C4D0 /* ONTWalletTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0C420F8447300A1C4D0 /* ONTWalletTests.m */; };
 		731EB0D020F8447300A1C4D0 /* ONTWalletUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 731EB0CF20F8447300A1C4D0 /* ONTWalletUITests.m */; };
+		7332E3B921A900DC00EB43E6 /* NeoVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7332E3B121A900DC00EB43E6 /* NeoVM.m */; };
+		7332E3BA21A900DC00EB43E6 /* BuildParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 7332E3B221A900DC00EB43E6 /* BuildParams.m */; };
+		7332E3BB21A900DC00EB43E6 /* Oep4.m in Sources */ = {isa = PBXBuildFile; fileRef = 7332E3B321A900DC00EB43E6 /* Oep4.m */; };
+		7332E3BC21A900DC00EB43E6 /* Parameter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7332E3B421A900DC00EB43E6 /* Parameter.m */; };
+		7332E3BD21A900DC00EB43E6 /* AbiFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 7332E3B521A900DC00EB43E6 /* AbiFunction.m */; };
 		734714C121154BF400ADD665 /* neoutils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7347148421154BF400ADD665 /* neoutils.framework */; };
 		734714C221154BF400ADD665 /* MnemonicCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7347148721154BF400ADD665 /* MnemonicCode.m */; };
 		734714C321154BF400ADD665 /* ECKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 7347148921154BF400ADD665 /* ECKey.m */; };
@@ -118,6 +123,16 @@
 		731EB0CB20F8447300A1C4D0 /* ONTWalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ONTWalletUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		731EB0CF20F8447300A1C4D0 /* ONTWalletUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ONTWalletUITests.m; sourceTree = "<group>"; };
 		731EB0D120F8447300A1C4D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7332E3AF21A900DC00EB43E6 /* AbiFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbiFunction.h; sourceTree = "<group>"; };
+		7332E3B021A900DC00EB43E6 /* Parameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parameter.h; sourceTree = "<group>"; };
+		7332E3B121A900DC00EB43E6 /* NeoVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeoVM.m; sourceTree = "<group>"; };
+		7332E3B221A900DC00EB43E6 /* BuildParams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuildParams.m; sourceTree = "<group>"; };
+		7332E3B321A900DC00EB43E6 /* Oep4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Oep4.m; sourceTree = "<group>"; };
+		7332E3B421A900DC00EB43E6 /* Parameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Parameter.m; sourceTree = "<group>"; };
+		7332E3B521A900DC00EB43E6 /* AbiFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbiFunction.m; sourceTree = "<group>"; };
+		7332E3B621A900DC00EB43E6 /* NeoVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeoVM.h; sourceTree = "<group>"; };
+		7332E3B721A900DC00EB43E6 /* Oep4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Oep4.h; sourceTree = "<group>"; };
+		7332E3B821A900DC00EB43E6 /* BuildParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuildParams.h; sourceTree = "<group>"; };
 		7347148321154BF400ADD665 /* ONTAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONTAddress.h; sourceTree = "<group>"; };
 		7347148421154BF400ADD665 /* neoutils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = neoutils.framework; sourceTree = "<group>"; };
 		7347148521154BF400ADD665 /* ONTAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ONTAttribute.h; sourceTree = "<group>"; };
@@ -382,6 +397,23 @@
 			path = ONTWalletUITests;
 			sourceTree = "<group>";
 		};
+		7332E3AE21A900DC00EB43E6 /* NeoVM */ = {
+			isa = PBXGroup;
+			children = (
+				7332E3AF21A900DC00EB43E6 /* AbiFunction.h */,
+				7332E3B521A900DC00EB43E6 /* AbiFunction.m */,
+				7332E3B821A900DC00EB43E6 /* BuildParams.h */,
+				7332E3B221A900DC00EB43E6 /* BuildParams.m */,
+				7332E3B621A900DC00EB43E6 /* NeoVM.h */,
+				7332E3B121A900DC00EB43E6 /* NeoVM.m */,
+				7332E3B721A900DC00EB43E6 /* Oep4.h */,
+				7332E3B321A900DC00EB43E6 /* Oep4.m */,
+				7332E3B021A900DC00EB43E6 /* Parameter.h */,
+				7332E3B421A900DC00EB43E6 /* Parameter.m */,
+			);
+			path = NeoVM;
+			sourceTree = "<group>";
+		};
 		7347148021154BF400ADD665 /* ONTSDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +519,7 @@
 		734714A721154BF400ADD665 /* SmartContract */ = {
 			isa = PBXGroup;
 			children = (
+				7332E3AE21A900DC00EB43E6 /* NeoVM */,
 				734714A921154BF400ADD665 /* ONTBool.h */,
 				734714AD21154BF400ADD665 /* ONTBool.m */,
 				734714B021154BF400ADD665 /* ONTInteger.h */,
@@ -884,8 +917,10 @@
 				7347154F21154CA300ADD665 /* ripemd160.c in Sources */,
 				7347155421154CA300ADD665 /* scrypt_sha256.c in Sources */,
 				7347154021154CA300ADD665 /* bip39.c in Sources */,
+				7332E3BD21A900DC00EB43E6 /* AbiFunction.m in Sources */,
 				734714D021154BF400ADD665 /* ONTECKey.m in Sources */,
 				7347155221154CA300ADD665 /* memzero.c in Sources */,
+				7332E3BC21A900DC00EB43E6 /* Parameter.m in Sources */,
 				73B1C4B12116006E002FDFF2 /* ONTNetworkService.m in Sources */,
 				7347154A21154CA300ADD665 /* IAGBitwiseComponents.m in Sources */,
 				734714D221154BF400ADD665 /* ONTNativeBuildParams.m in Sources */,
@@ -911,8 +946,10 @@
 				7347154321154CA300ADD665 /* hasher.c in Sources */,
 				734714CF21154BF400ADD665 /* ONTAttribute.m in Sources */,
 				7347154721154CA300ADD665 /* IAGGcmEndianness.m in Sources */,
+				7332E3BA21A900DC00EB43E6 /* BuildParams.m in Sources */,
 				73B1C4AB2115F21C002FDFF2 /* ONTUtils.m in Sources */,
 				734714C221154BF400ADD665 /* MnemonicCode.m in Sources */,
+				7332E3B921A900DC00EB43E6 /* NeoVM.m in Sources */,
 				7347154821154CA300ADD665 /* IAGAesComponents.m in Sources */,
 				734714C721154BF400ADD665 /* ONTPrivateKey.m in Sources */,
 				7347154221154CA300ADD665 /* sha2.c in Sources */,
@@ -929,6 +966,7 @@
 				7347154421154CA300ADD665 /* rand.c in Sources */,
 				7347154521154CA300ADD665 /* blake256.c in Sources */,
 				7347155921154CA300ADD665 /* ecdsa.c in Sources */,
+				7332E3BB21A900DC00EB43E6 /* Oep4.m in Sources */,
 				7347155A21154CA300ADD665 /* pbkdf2.c in Sources */,
 				734714C621154BF400ADD665 /* ECKeySignature.m in Sources */,
 				734714DC21154BF400ADD665 /* ONTAccount.m in Sources */,
